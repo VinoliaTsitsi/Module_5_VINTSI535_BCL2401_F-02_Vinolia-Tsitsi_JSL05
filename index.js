@@ -44,16 +44,16 @@ const guardian= {
 function generatePlaylist(guardians,songs) {
 
     return Object.keys(guardians).map(guardian=>{
-        const genre = guardians[guardian];
-        const playlist = songs.filter(song => genre.includes (song.genre))
+        const genres = guardians[guardian];
+        const playlist = songs.filter(song => genres.includes (song.genre))
     return {guardian , playlist }; 
-    })   
+    });   
 }
 
 // Generate playlists for each guardian
 function createPlaylistElement(playlist) {
     const playListDiv = document.createElement('div'); 
-    playListDiv.appendChild(songDiv); 
+    playListDiv.classList.add('playlist'); 
 
 const guardianHeading = document.createElement("h4");
 guardianHeading.textContent = `${playlist.guardian}'s Playlist`; 
@@ -65,7 +65,7 @@ guardianHeading.textContent = `${playlist.guardian}'s Playlist`;
 
  const songTitle = document.createElement("span"); 
  songTitle.classList.add("song-title"); 
- songTitle.textContent = (songTitle);
+ songTitle.textContent = song.title;
  songDiv.appendChild(songTitle); 
 
  const sontArtist = document.createElement("span"); 
@@ -82,8 +82,8 @@ return playListDiv
 
 //function to display playlist for each Guardian
 function displayPlaylists(playlists) {
-    const playlistsDiv = document.getElementById('playlist'); 
-    if (!playlistsDiv){
+    const playlistsContainer = document.getElementById('playlists'); 
+    if (!playlistsContainer){
         console.error("Element with ID 'playlists' not found");
         return; 
     }
@@ -100,9 +100,5 @@ function displayPlaylists(playlists) {
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs); 
 */
-const playlist = generatePlaylist(guardian, songs);
-displayPlaylists(playlist); 
-
-
-
-``
+const playlists = generatePlaylist(guardian, songs);
+displayPlaylists(playlists); 
