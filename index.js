@@ -20,10 +20,10 @@ const songs = [
     { title: "The love i know,i deserve", artist: "Donald" , genre: "House"},
     { title: "Nkosi", artist: "Oscar Mbo" , genre: "Afro Tech"},
     { title: "Tomorrow", artist: "Cairo" , genre: "Afro Tech"},
-    { title: "God's Love", artist: "Dr Tumi", genre:"Gospel",},
-    { title: "love on the brain", artist :"Rihanna" , genre:"RNB" },
+    { title: "God's Love", artist: "Dr Tumi", genre:"Gospel"},
+    { title: "love on the brain", artist:"Rihanna" , genre:"RNB" },
     { title: "God loves me",artist:"Dr Tumi" , genre:"Gospel"},
-    { title: "as you are",artist:"The Weekend", genre:"Hip-HOP"},
+    { title: "as you are",artist:"The Weekend", genre:"RNB"},
  
     // Feel free to add even more songs
 ];
@@ -35,7 +35,7 @@ const guardian= {
     "Gamora": ["Pop"],
     "Drax's": ["House"],
     "Rocket's": ["Gospel"],
-    "Groot's": ["HIP-HOP"],
+    "Groot's": ["RNB"],
 
     // Add preferences for Drax, Rocket, and Groot
 };
@@ -68,16 +68,16 @@ guardianHeading.textContent = `${playlist.guardian}'s Playlist`;
  songTitle.textContent = song.title;
  songDiv.appendChild(songTitle); 
 
- const sontArtist = document.createElement("span"); 
- sontArtist.classList.add("song-artist"); 
- sontArtist.textContent = `by ${song.artist}`; 
- songDiv.appendChild(sontArtist); 
+ const songArtist = document.createElement("span"); 
+ songArtist.classList.add("song-artist"); 
+ songArtist.textContent = `by ${song.artist}`; 
+ songDiv.appendChild(songArtist); 
 
- playlist.appendChild(songDiv); 
+ playListDiv.appendChild(songDiv); 
 
 })
 
-return playListDiv
+return playListDiv;
 }
 
 //function to display playlist for each Guardian
@@ -89,8 +89,8 @@ function displayPlaylists(playlists) {
     }
 
     playlists.forEach(playlist => {
-        const playlistElement = createPlaylist(playlist); 
-        playlistsContainer.appendChild(playlist); 
+        const playlistElement = createPlaylistElement(playlist); 
+        playlistsContainer.appendChild(playlistElement); 
     })
 
 }
